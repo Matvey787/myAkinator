@@ -1,0 +1,27 @@
+{
+ is student of MIPT
+   {
+      Alex R.
+   }
+   {
+      is animal
+        {
+           is dog
+             {
+                Rex
+             }
+             {
+                is cat
+                  {
+                     Poltorashka
+                  }
+             }
+        }
+        {
+           is matan
+             {
+                fuuuuuuuu
+             }
+        }
+   }
+}
