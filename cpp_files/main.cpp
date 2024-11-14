@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 #include "../h_files/readFile.h"
 #include "../h_files/nodeStruct.h"
@@ -15,16 +16,32 @@
 int writePngFile(const char* dotFile, const char* directory);
 
 int main(){
+    system("rm -rf png_files");
+    system("mkdir -p png_files");
+
     char* buffer = nullptr;
     size_t numOfSmbls = 0;
     size_t numOfStrs = 0;
     readFile(&buffer, "tree.json", &numOfSmbls, &numOfStrs);
-    //printf("%lu", numOfStrs);
+
+    //printf("%lu\n", numOfStrs);
     
     char* splitStrs = (char*)calloc(numOfSmbls+1, sizeof(char));
+
+    if (splitStrs == nullptr)
+    {
+        printf("allocate memory fail");
+        return 1;
+    }
+
     char* ptr_start_of_splitStrs = splitStrs;
     splitOnStrs(buffer, numOfStrs, splitStrs);
     
+    /* int k =0;
+    for (int i = 0; i < numOfStrs; i++){
+        printf("----%s\n", splitStrs+k);
+        k += strlen(splitStrs)+1;
+    } */
 
     splitStrs += 2;
     node_t head = {splitStrs, NULL, NULL};
@@ -38,7 +55,7 @@ int main(){
 
     size_t radius = (numOfStrs - 1) / 6; // radius of a tree
     def_t* defParts = (def_t*)calloc(radius, sizeof(def_t));
-    printLeafDef(mainNode, "Poltorashka", defParts, 0);
+    //printLeafDef(mainNode, "Poltorashka", defParts, 0);
 
     newNode_t newNodes = {0};
     run(&mainNode, "tree.json", &newNodes);
@@ -51,6 +68,7 @@ int main(){
 }
 
 int writePngFile(const char* dotFile, const char* directory){
+    assert(dotFile != nullptr);
     static int numOfCall = 0;
     char command[100];
     sprintf(command, "dot %s -Tpng -o %spicture%d.png", dotFile, directory, numOfCall++);

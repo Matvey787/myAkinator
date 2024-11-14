@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 #include "../h_files/nodeStruct.h"
 #include "../h_files/defStruct.h"
 #include "../h_files/printLeafDef.h"
 
 void printLeafDef(const node_t* node, const char* leafName, def_t* defParts, size_t i_dP){
-
+    assert(node != nullptr);
+    assert(leafName != nullptr);
+    assert(defParts != nullptr);
+    
     if (node->left == NULL && node->right == NULL)
     {
         if (strcmp(leafName, node->data) == 0)

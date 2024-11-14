@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <assert.h>
 
 #include "../h_files/nodeStruct.h"
 #include "../h_files/writeDotFile.h"
@@ -9,7 +10,14 @@
 static void writeTree(node_t* node, FILE** wFile, size_t rank);
 
 void writeDotFile(node_t* node, const char* fileName){
+    assert(node != nullptr);
+    assert(fileName != nullptr);
+    
     FILE* wFile = fopen(fileName, "w");
+    if (wFile == nullptr){
+        printf("couldn't open file");
+        return;
+    }
 
     fprintf(wFile, "digraph\n{ \nrankdir=HR;\n");
     fprintf(wFile, "\n");
@@ -22,6 +30,9 @@ void writeDotFile(node_t* node, const char* fileName){
 }
 
 static void writeTree(node_t* node, FILE** wFile, size_t rank){
+    assert(node != nullptr);
+    assert(wFile != nullptr);
+
     fprintf(*wFile, "node%p [ shape=record, rank = %lu, label= \"{ %p | %s | {<n%p_l> left | <n%p_r> right}} \" ];\n", 
                                                                                                 node, rank, node, node->data, node, node);
     if (node->left != NULL)

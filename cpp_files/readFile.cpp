@@ -1,13 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #include "../h_files/readFile.h"
 
 void readFile(char** buffer, const char* file_name, size_t* numOfSymbols, size_t* numOfStrs){
+    assert(buffer != nullptr);
+    assert(file_name != nullptr);
+    assert(numOfStrs != nullptr);
+    assert(numOfSymbols != nullptr);
 
     // open file for read
 
     FILE* rFile = fopen(file_name, "rb");
+
+    if (rFile == nullptr){
+        printf("can't open read file\n");
+        return;
+    }
 
     // find size of file
 
@@ -18,6 +28,13 @@ void readFile(char** buffer, const char* file_name, size_t* numOfSymbols, size_t
     // read text from file
 
     *buffer = (char*)calloc(*numOfSymbols, sizeof(char));
+
+    if (*buffer == nullptr)
+    {
+        printf("allocate memory fail");
+        return;
+    }
+
     fread(*buffer, sizeof(char), *numOfSymbols, rFile);
 
     // find number of strings

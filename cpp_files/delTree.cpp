@@ -2,11 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <assert.h>
 
 #include "../h_files/delTree.h"
 #include "../h_files/nodeStruct.h"
 
 void delTree(node_t* node){
+    assert(node != nullptr);
+    
     if (node->left != NULL)
         delTree(node->left);
     

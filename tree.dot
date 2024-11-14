@@ -2,21 +2,17 @@ digraph
 { 
 rankdir=HR;
 
-node0x79573b6090c0 [ shape=record, rank = 1, label= "{ 0x79573b6090c0 | is student of MIPT | {<n0x79573b6090c0_l> left | <n0x79573b6090c0_r> right}} " ];
-node0x503000000040 [ shape=record, rank = 2, label= "{ 0x503000000040 | Alex R. | {<n0x503000000040_l> left | <n0x503000000040_r> right}} " ];
-node0x79573b6090c0:<n0x79573b6090c0_l>:s -> node0x503000000040:n [ color = blue; ]
-node0x503000000070 [ shape=record, rank = 3, label= "{ 0x503000000070 | is animal | {<n0x503000000070_l> left | <n0x503000000070_r> right}} " ];
-node0x5030000000a0 [ shape=record, rank = 4, label= "{ 0x5030000000a0 | is dog | {<n0x5030000000a0_l> left | <n0x5030000000a0_r> right}} " ];
-node0x5030000000d0 [ shape=record, rank = 5, label= "{ 0x5030000000d0 | Rex | {<n0x5030000000d0_l> left | <n0x5030000000d0_r> right}} " ];
+node0x7e3a55c090c0 [ shape=record, rank = 1, label= "{ 0x7e3a55c090c0 | is human | {<n0x7e3a55c090c0_l> left | <n0x7e3a55c090c0_r> right}} " ];
+node0x503000000040 [ shape=record, rank = 2, label= "{ 0x503000000040 | is student of MIPT | {<n0x503000000040_l> left | <n0x503000000040_r> right}} " ];
+node0x503000000070 [ shape=record, rank = 3, label= "{ 0x503000000070 | Alex R. | {<n0x503000000070_l> left | <n0x503000000070_r> right}} " ];
+node0x503000000040:<n0x503000000040_l>:s -> node0x503000000070:n [ color = blue; ]
+node0x7e3a55c090c0:<n0x7e3a55c090c0_l>:s -> node0x503000000040:n [ color = blue; ]
+node0x5030000000a0 [ shape=record, rank = 3, label= "{ 0x5030000000a0 | is animal | {<n0x5030000000a0_l> left | <n0x5030000000a0_r> right}} " ];
+node0x5030000000d0 [ shape=record, rank = 4, label= "{ 0x5030000000d0 | is Poltorashka | {<n0x5030000000d0_l> left | <n0x5030000000d0_r> right}} " ];
 node0x5030000000a0:<n0x5030000000a0_l>:s -> node0x5030000000d0:n [ color = blue; ]
-node0x503000000100 [ shape=record, rank = 6, label= "{ 0x503000000100 | is cat | {<n0x503000000100_l> left | <n0x503000000100_r> right}} " ];
-node0x503000000130 [ shape=record, rank = 7, label= "{ 0x503000000130 | Poltorashka | {<n0x503000000130_l> left | <n0x503000000130_r> right}} " ];
+node0x503000000100 [ shape=record, rank = 5, label= "{ 0x503000000100 | is dog | {<n0x503000000100_l> left | <n0x503000000100_r> right}} " ];
+node0x503000000130 [ shape=record, rank = 6, label= "{ 0x503000000130 | Rex | {<n0x503000000130_l> left | <n0x503000000130_r> right}} " ];
 node0x503000000100:<n0x503000000100_l>:s -> node0x503000000130:n [ color = blue; ]
 node0x5030000000a0:<n0x5030000000a0_r>:s -> node0x503000000100:n [ color = red; ]
-node0x503000000070:<n0x503000000070_l>:s -> node0x5030000000a0:n [ color = blue; ]
-node0x503000000160 [ shape=record, rank = 5, label= "{ 0x503000000160 | is matan | {<n0x503000000160_l> left | <n0x503000000160_r> right}} " ];
-node0x503000000190 [ shape=record, rank = 6, label= "{ 0x503000000190 | fuuuuuuuu | {<n0x503000000190_l> left | <n0x503000000190_r> right}} " ];
-node0x503000000160:<n0x503000000160_l>:s -> node0x503000000190:n [ color = blue; ]
-node0x503000000070:<n0x503000000070_r>:s -> node0x503000000160:n [ color = red; ]
-node0x79573b6090c0:<n0x79573b6090c0_r>:s -> node0x503000000070:n [ color = red; ]
+node0x7e3a55c090c0:<n0x7e3a55c090c0_r>:s -> node0x5030000000a0:n [ color = red; ]
 }

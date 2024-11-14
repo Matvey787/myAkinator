@@ -1,27 +1,21 @@
 {
- is student of MIPT
-   {
-      Alex R.
-   }
-   {
-      is animal
+is human
+    {
+    is student of MIPT
         {
-           is dog
-             {
-                Rex
-             }
-             {
-                is cat
-                  {
-                     Poltorashka
-                  }
-             }
+        Alex R.
+        }
+    }
+    {
+    is animal
+        {
+        is Poltorashka
         }
         {
-           is matan
-             {
-                fuuuuuuuu
-             }
+        is dog
+            {
+            Rex
+            }
         }
-   }
+    }
 }

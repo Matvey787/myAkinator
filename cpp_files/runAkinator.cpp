@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ncurses.h>
+#include <assert.h>
 
 #include "../h_files/nodeStruct.h"
 #include "../h_files/newNodes.h"
@@ -12,15 +13,24 @@ void updateJSON(node_t* tree, const char* fileName);
 void rewriteTreeJSON(node_t* tree, FILE* file, int indent);
 
 void run(node_t** tree, const char* fileName, newNode_t* newNodes){
+    assert(tree != nullptr);
+    char phrase[100] = {0};
+    sprintf(phrase, "espeak \"%s\"", (*tree)->data);
+    system(phrase);
+
     printf("%s?\n", (*tree)->data);
     int c = 0;
+
     while ((c = getchar()) != 'y' && c != 'n') ;
     while (getchar() != '\n');
+
     if (c == 'y' && (*tree)->left != NULL)
     {
         if ((*tree)->left->left == NULL && (*tree)->left->right == NULL)
         {
             printf("I read your mind. It's %s\n", (*tree)->left->data);
+            sprintf(phrase, "espeak \"I read your mind. It's %s\"", (*tree)->left->data);
+            system(phrase);
         } 
         else
         {
@@ -32,6 +42,7 @@ void run(node_t** tree, const char* fileName, newNode_t* newNodes){
         if ((*tree)->right->left == NULL && (*tree)->right->right == NULL)
         {
             printf("I am loser. What did you wish for? Create new node:\n");
+            system("espeak \"I am loser. What did you wish for? Create new node\"");
             createNode(&((*tree)->right), newNodes);
         }
         else 
@@ -40,6 +51,7 @@ void run(node_t** tree, const char* fileName, newNode_t* newNodes){
         }
     } else {
         printf("I am loser. What did you wish for? Create new node:\n");
+        system("espeak \"I am loser. What did you wish for? Create new node\"");
         createNode(&((*tree)->right), newNodes);
     }
     updateJSON(*tree, fileName);
@@ -72,9 +84,11 @@ void updateJSON(node_t* tree, const char* fileName){
 }
 
 void rewriteTreeJSON(node_t* tree, FILE* file, int indent){
-    int fullIndent = indent * 5 + (int)strlen(tree->data) + 1;
+    assert(tree != nullptr);
+    assert(tree != nullptr);
+    int fullIndent = indent * 4 + (int)strlen(tree->data);
     
-    fprintf(file, "%*s", indent * 5, "{\n");
+    fprintf(file, "%*s", indent * 4 + 2, "{\n");
     fprintf(file, "%*s\n", fullIndent, tree->data);
 
     if (tree->left != NULL)
@@ -82,5 +96,5 @@ void rewriteTreeJSON(node_t* tree, FILE* file, int indent){
     if (tree->right != NULL)
         rewriteTreeJSON(tree->right, file, indent+1);
 
-    fprintf(file, "%*s", indent * 5, "}\n");
+    fprintf(file, "%*s", indent * 4 + 2, "}\n");
 }
