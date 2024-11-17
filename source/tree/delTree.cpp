@@ -4,8 +4,7 @@
 #include <ctype.h>
 #include <assert.h>
 
-#include "../h_files/delTree.h"
-#include "../h_files/nodeStruct.h"
+#include "tree.h"
 
 void delTree(node_t* node){
     assert(node != nullptr);

@@ -2,17 +2,83 @@ digraph
 { 
 rankdir=HR;
 
-node0x7e3a55c090c0 [ shape=record, rank = 1, label= "{ 0x7e3a55c090c0 | is human | {<n0x7e3a55c090c0_l> left | <n0x7e3a55c090c0_r> right}} " ];
+node0x76c1a09090d0 [ shape=record, rank = 1, label= "{ 0x76c1a09090d0 | is human | {<n0x76c1a09090d0_l> left | <n0x76c1a09090d0_r> right}} " ];
 node0x503000000040 [ shape=record, rank = 2, label= "{ 0x503000000040 | is student of MIPT | {<n0x503000000040_l> left | <n0x503000000040_r> right}} " ];
-node0x503000000070 [ shape=record, rank = 3, label= "{ 0x503000000070 | Alex R. | {<n0x503000000070_l> left | <n0x503000000070_r> right}} " ];
-node0x503000000040:<n0x503000000040_l>:s -> node0x503000000070:n [ color = blue; ]
-node0x7e3a55c090c0:<n0x7e3a55c090c0_l>:s -> node0x503000000040:n [ color = blue; ]
-node0x5030000000a0 [ shape=record, rank = 3, label= "{ 0x5030000000a0 | is animal | {<n0x5030000000a0_l> left | <n0x5030000000a0_r> right}} " ];
-node0x5030000000d0 [ shape=record, rank = 4, label= "{ 0x5030000000d0 | is Poltorashka | {<n0x5030000000d0_l> left | <n0x5030000000d0_r> right}} " ];
+node0x503000000070 [ shape=record, rank = 3, label= "{ 0x503000000070 | is study in FRKT | {<n0x503000000070_l> left | <n0x503000000070_r> right}} " ];
+node0x5030000000a0 [ shape=record, rank = 4, label= "{ 0x5030000000a0 | is name start on A | {<n0x5030000000a0_l> left | <n0x5030000000a0_r> right}} " ];
+node0x5030000000d0 [ shape=record, rank = 5, label= "{ 0x5030000000d0 | Alex R. | {<n0x5030000000d0_l> left | <n0x5030000000d0_r> right}} " ];
 node0x5030000000a0:<n0x5030000000a0_l>:s -> node0x5030000000d0:n [ color = blue; ]
-node0x503000000100 [ shape=record, rank = 5, label= "{ 0x503000000100 | is dog | {<n0x503000000100_l> left | <n0x503000000100_r> right}} " ];
-node0x503000000130 [ shape=record, rank = 6, label= "{ 0x503000000130 | Rex | {<n0x503000000130_l> left | <n0x503000000130_r> right}} " ];
+node0x503000000100 [ shape=record, rank = 6, label= "{ 0x503000000100 | is name start on E | {<n0x503000000100_l> left | <n0x503000000100_r> right}} " ];
+node0x503000000130 [ shape=record, rank = 7, label= "{ 0x503000000130 | Egor B. | {<n0x503000000130_l> left | <n0x503000000130_r> right}} " ];
 node0x503000000100:<n0x503000000100_l>:s -> node0x503000000130:n [ color = blue; ]
+node0x503000000160 [ shape=record, rank = 8, label= "{ 0x503000000160 | is name start on M | {<n0x503000000160_l> left | <n0x503000000160_r> right}} " ];
+node0x503000000190 [ shape=record, rank = 9, label= "{ 0x503000000190 | Matvey G. | {<n0x503000000190_l> left | <n0x503000000190_r> right}} " ];
+node0x503000000160:<n0x503000000160_l>:s -> node0x503000000190:n [ color = blue; ]
+node0x503000000100:<n0x503000000100_r>:s -> node0x503000000160:n [ color = red; ]
 node0x5030000000a0:<n0x5030000000a0_r>:s -> node0x503000000100:n [ color = red; ]
-node0x7e3a55c090c0:<n0x7e3a55c090c0_r>:s -> node0x5030000000a0:n [ color = red; ]
+node0x503000000070:<n0x503000000070_l>:s -> node0x5030000000a0:n [ color = blue; ]
+node0x5030000001c0 [ shape=record, rank = 5, label= "{ 0x5030000001c0 | is study in LFI | {<n0x5030000001c0_l> left | <n0x5030000001c0_r> right}} " ];
+node0x5030000001f0 [ shape=record, rank = 6, label= "{ 0x5030000001f0 | is studient | {<n0x5030000001f0_l> left | <n0x5030000001f0_r> right}} " ];
+node0x503000000220 [ shape=record, rank = 7, label= "{ 0x503000000220 | Alex S. | {<n0x503000000220_l> left | <n0x503000000220_r> right}} " ];
+node0x5030000001f0:<n0x5030000001f0_l>:s -> node0x503000000220:n [ color = blue; ]
+node0x503000000250 [ shape=record, rank = 8, label= "{ 0x503000000250 | is prepod | {<n0x503000000250_l> left | <n0x503000000250_r> right}} " ];
+node0x503000000280 [ shape=record, rank = 9, label= "{ 0x503000000280 | K.L.M. | {<n0x503000000280_l> left | <n0x503000000280_r> right}} " ];
+node0x503000000250:<n0x503000000250_l>:s -> node0x503000000280:n [ color = blue; ]
+node0x5030000001f0:<n0x5030000001f0_r>:s -> node0x503000000250:n [ color = red; ]
+node0x5030000001c0:<n0x5030000001c0_l>:s -> node0x5030000001f0:n [ color = blue; ]
+node0x503000000070:<n0x503000000070_r>:s -> node0x5030000001c0:n [ color = red; ]
+node0x503000000040:<n0x503000000040_l>:s -> node0x503000000070:n [ color = blue; ]
+node0x5030000002b0 [ shape=record, rank = 4, label= "{ 0x5030000002b0 | is citisen of Russia | {<n0x5030000002b0_l> left | <n0x5030000002b0_r> right}} " ];
+node0x5030000002e0 [ shape=record, rank = 5, label= "{ 0x5030000002e0 | is politician | {<n0x5030000002e0_l> left | <n0x5030000002e0_r> right}} " ];
+node0x503000000310 [ shape=record, rank = 6, label= "{ 0x503000000310 | is politician of Russia | {<n0x503000000310_l> left | <n0x503000000310_r> right}} " ];
+node0x503000000340 [ shape=record, rank = 7, label= "{ 0x503000000340 | Putin | {<n0x503000000340_l> left | <n0x503000000340_r> right}} " ];
+node0x503000000310:<n0x503000000310_l>:s -> node0x503000000340:n [ color = blue; ]
+node0x503000000370 [ shape=record, rank = 8, label= "{ 0x503000000370 | is politician of USA | {<n0x503000000370_l> left | <n0x503000000370_r> right}} " ];
+node0x5030000003a0 [ shape=record, rank = 9, label= "{ 0x5030000003a0 | Tramp | {<n0x5030000003a0_l> left | <n0x5030000003a0_r> right}} " ];
+node0x503000000370:<n0x503000000370_l>:s -> node0x5030000003a0:n [ color = blue; ]
+node0x503000000310:<n0x503000000310_r>:s -> node0x503000000370:n [ color = red; ]
+node0x5030000002e0:<n0x5030000002e0_l>:s -> node0x503000000310:n [ color = blue; ]
+node0x5030000003d0 [ shape=record, rank = 7, label= "{ 0x5030000003d0 | is musician | {<n0x5030000003d0_l> left | <n0x5030000003d0_r> right}} " ];
+node0x503000000400 [ shape=record, rank = 8, label= "{ 0x503000000400 | Morgenshtern | {<n0x503000000400_l> left | <n0x503000000400_r> right}} " ];
+node0x5030000003d0:<n0x5030000003d0_l>:s -> node0x503000000400:n [ color = blue; ]
+node0x503000000430 [ shape=record, rank = 9, label= "{ 0x503000000430 | is sportsmen | {<n0x503000000430_l> left | <n0x503000000430_r> right}} " ];
+node0x503000000460 [ shape=record, rank = 10, label= "{ 0x503000000460 | is boxer | {<n0x503000000460_l> left | <n0x503000000460_r> right}} " ];
+node0x503000000490 [ shape=record, rank = 11, label= "{ 0x503000000490 | Mike Tyson | {<n0x503000000490_l> left | <n0x503000000490_r> right}} " ];
+node0x503000000460:<n0x503000000460_l>:s -> node0x503000000490:n [ color = blue; ]
+node0x503000000430:<n0x503000000430_l>:s -> node0x503000000460:n [ color = blue; ]
+node0x5030000003d0:<n0x5030000003d0_r>:s -> node0x503000000430:n [ color = red; ]
+node0x5030000002e0:<n0x5030000002e0_r>:s -> node0x5030000003d0:n [ color = red; ]
+node0x5030000002b0:<n0x5030000002b0_l>:s -> node0x5030000002e0:n [ color = blue; ]
+node0x503000000040:<n0x503000000040_r>:s -> node0x5030000002b0:n [ color = red; ]
+node0x76c1a09090d0:<n0x76c1a09090d0_l>:s -> node0x503000000040:n [ color = blue; ]
+node0x5030000004c0 [ shape=record, rank = 3, label= "{ 0x5030000004c0 | is animal | {<n0x5030000004c0_l> left | <n0x5030000004c0_r> right}} " ];
+node0x5030000004f0 [ shape=record, rank = 4, label= "{ 0x5030000004f0 | is Poltorashka | {<n0x5030000004f0_l> left | <n0x5030000004f0_r> right}} " ];
+node0x5030000004c0:<n0x5030000004c0_l>:s -> node0x5030000004f0:n [ color = blue; ]
+node0x503000000520 [ shape=record, rank = 5, label= "{ 0x503000000520 | is dog | {<n0x503000000520_l> left | <n0x503000000520_r> right}} " ];
+node0x503000000550 [ shape=record, rank = 6, label= "{ 0x503000000550 | Rex | {<n0x503000000550_l> left | <n0x503000000550_r> right}} " ];
+node0x503000000520:<n0x503000000520_l>:s -> node0x503000000550:n [ color = blue; ]
+node0x503000000580 [ shape=record, rank = 7, label= "{ 0x503000000580 | is tree | {<n0x503000000580_l> left | <n0x503000000580_r> right}} " ];
+node0x5030000005b0 [ shape=record, rank = 8, label= "{ 0x5030000005b0 | is dub | {<n0x5030000005b0_l> left | <n0x5030000005b0_r> right}} " ];
+node0x5030000005e0 [ shape=record, rank = 9, label= "{ 0x5030000005e0 | dub | {<n0x5030000005e0_l> left | <n0x5030000005e0_r> right}} " ];
+node0x5030000005b0:<n0x5030000005b0_l>:s -> node0x5030000005e0:n [ color = blue; ]
+node0x503000000580:<n0x503000000580_l>:s -> node0x5030000005b0:n [ color = blue; ]
+node0x503000000610 [ shape=record, rank = 9, label= "{ 0x503000000610 | is electronik thing | {<n0x503000000610_l> left | <n0x503000000610_r> right}} " ];
+node0x503000000640 [ shape=record, rank = 10, label= "{ 0x503000000640 | is toaster | {<n0x503000000640_l> left | <n0x503000000640_r> right}} " ];
+node0x503000000670 [ shape=record, rank = 11, label= "{ 0x503000000670 | toaster | {<n0x503000000670_l> left | <n0x503000000670_r> right}} " ];
+node0x503000000640:<n0x503000000640_l>:s -> node0x503000000670:n [ color = blue; ]
+node0x5030000006a0 [ shape=record, rank = 12, label= "{ 0x5030000006a0 | is fridge | {<n0x5030000006a0_l> left | <n0x5030000006a0_r> right}} " ];
+node0x5030000006d0 [ shape=record, rank = 13, label= "{ 0x5030000006d0 | fridge | {<n0x5030000006d0_l> left | <n0x5030000006d0_r> right}} " ];
+node0x5030000006a0:<n0x5030000006a0_l>:s -> node0x5030000006d0:n [ color = blue; ]
+node0x503000000700 [ shape=record, rank = 14, label= "{ 0x503000000700 | is car | {<n0x503000000700_l> left | <n0x503000000700_r> right}} " ];
+node0x503000000730 [ shape=record, rank = 15, label= "{ 0x503000000730 | is subaru | {<n0x503000000730_l> left | <n0x503000000730_r> right}} " ];
+node0x503000000760 [ shape=record, rank = 16, label= "{ 0x503000000760 | subaru | {<n0x503000000760_l> left | <n0x503000000760_r> right}} " ];
+node0x503000000730:<n0x503000000730_l>:s -> node0x503000000760:n [ color = blue; ]
+node0x503000000700:<n0x503000000700_l>:s -> node0x503000000730:n [ color = blue; ]
+node0x5030000006a0:<n0x5030000006a0_r>:s -> node0x503000000700:n [ color = red; ]
+node0x503000000640:<n0x503000000640_r>:s -> node0x5030000006a0:n [ color = red; ]
+node0x503000000610:<n0x503000000610_l>:s -> node0x503000000640:n [ color = blue; ]
+node0x503000000580:<n0x503000000580_r>:s -> node0x503000000610:n [ color = red; ]
+node0x503000000520:<n0x503000000520_r>:s -> node0x503000000580:n [ color = red; ]
+node0x5030000004c0:<n0x5030000004c0_r>:s -> node0x503000000520:n [ color = red; ]
+node0x76c1a09090d0:<n0x76c1a09090d0_r>:s -> node0x5030000004c0:n [ color = red; ]
 }

@@ -4,9 +4,9 @@
 #include <ncurses.h>
 #include <assert.h>
 
-#include "../h_files/nodeStruct.h"
-#include "../h_files/newNodes.h"
-#include "../h_files/runAkinator.h"
+#include "tree.h"
+#include "newNodes.h"
+#include "runAkinator.h"
 
 void createNode(node_t** ptrNode, newNode_t* newNodes);
 void updateJSON(node_t* tree, const char* fileName);
@@ -22,13 +22,13 @@ void run(node_t** tree, const char* fileName, newNode_t* newNodes){
     int c = 0;
 
     while ((c = getchar()) != 'y' && c != 'n') ;
-    while (getchar() != '\n');
+    while (getchar() != '\n');    
 
     if (c == 'y' && (*tree)->left != NULL)
     {
         if ((*tree)->left->left == NULL && (*tree)->left->right == NULL)
         {
-            printf("I read your mind. It's %s\n", (*tree)->left->data);
+            printf("I read your mind. It %s\n", (*tree)->left->data);
             sprintf(phrase, "espeak \"I read your mind. It's %s\"", (*tree)->left->data);
             system(phrase);
         } 
@@ -59,22 +59,25 @@ void run(node_t** tree, const char* fileName, newNode_t* newNodes){
 
 void createNode(node_t** ptrNode, newNode_t* newNodes){
     printf("New question: ");
-    scanf("%s", newNodes->buffer);
+    scanf("%s", newNodes->newStr);
+
     while (getchar() != '\n');
-    printf("%s\n", newNodes->buffer);
+
+    printf("%s\n", newNodes->newStr);
     *ptrNode = (node_t*)calloc(1, sizeof(node_t));
-    (*ptrNode)->data = newNodes->buffer;
+    (*ptrNode)->data = newNodes->newStr;
+    newNodes->freeSpace  += strlen(newNodes->newStr) + 1;
 
-    newNodes->freeSpace  += strlen(newNodes->buffer) + 1;
-    printf("ptr node before: %s\n", (*ptrNode)->data);
+    //printf("ptr node before: %s\n", (*ptrNode)->data);
     printf("Answer if \"yes\": ");
-    scanf("%s", newNodes->buffer + newNodes->freeSpace);
-    (*ptrNode)->left = (node_t*)calloc(1, sizeof(node_t));
-    (*ptrNode)->left->data = newNodes->buffer;
+    scanf("%s", newNodes->newStr + newNodes->freeSpace);
     
-    printf("ptr node after: %s\n", (*ptrNode)->data);
+    (*ptrNode)->left = (node_t*)calloc(1, sizeof(node_t));
+    (*ptrNode)->left->data = newNodes->newStr + newNodes->freeSpace;
+    
+    //printf("ptr node after: %s\n", (*ptrNode)->data);
 
-    newNodes->freeSpace += strlen(newNodes->buffer) + 1;
+    newNodes->freeSpace += strlen(newNodes->newStr + newNodes->freeSpace) + 1;
 }
 
 void updateJSON(node_t* tree, const char* fileName){

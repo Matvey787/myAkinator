@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "../h_files/readFile.h"
+#include "readFile.h"
 
-void readFile(char** buffer, const char* file_name, size_t* numOfSymbols, size_t* numOfStrs){
+error readFile(char** buffer, const char* file_name, size_t* numOfSymbols, size_t* numOfStrs){
     assert(buffer != nullptr);
     assert(file_name != nullptr);
     assert(numOfStrs != nullptr);
@@ -16,7 +16,7 @@ void readFile(char** buffer, const char* file_name, size_t* numOfSymbols, size_t
 
     if (rFile == nullptr){
         printf("can't open read file\n");
-        return;
+        return READ_FILE_FAIL;
     }
 
     // find size of file
@@ -26,13 +26,12 @@ void readFile(char** buffer, const char* file_name, size_t* numOfSymbols, size_t
     fseek(rFile, 0, SEEK_SET);
 
     // read text from file
-
     *buffer = (char*)calloc(*numOfSymbols, sizeof(char));
 
     if (*buffer == nullptr)
     {
         printf("allocate memory fail");
-        return;
+        return ALLOCATE_MEMORY_FAIL;
     }
 
     fread(*buffer, sizeof(char), *numOfSymbols, rFile);
@@ -41,7 +40,7 @@ void readFile(char** buffer, const char* file_name, size_t* numOfSymbols, size_t
     for (size_t i = 0; i < *numOfSymbols; i++) if ((*buffer)[i] == '\n') ++(*numOfStrs);
 
     // close file 
-
     fclose(rFile);
 
+    return NO_ERRORS;
 }

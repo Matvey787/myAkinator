@@ -4,19 +4,22 @@
 #include <ctype.h>
 #include <assert.h>
 
-#include "../h_files/splitOnStrs.h"
+#include "readFile.h"
+#include "errors.h"
 
-void splitOnStrs(char* buffer, size_t numOfStrs, char* splitStrs){
+error splitOnStrs(char* buffer, size_t numOfStrs, char* splitStrs){
     assert(buffer != nullptr);
-    
+    assert(splitStrs != nullptr);
+
+    if (buffer == nullptr || splitStrs == nullptr)
+        return SPLIT_ON_STRS_FAIL;
+
     size_t i_buff = 0;
     size_t i_spltStrs = 0;
     int needDelSpaces = 0;
 
     while (numOfStrs > 0)
     {
-        /* fprintf(stderr, "%lu %lu %lu \"%c\"\n", i_buff, numOfStrs, needDelSpaces,  buffer[i_buff]);
-        getchar(); */
         if (buffer[i_buff] == '\n')
         {
             splitStrs[i_spltStrs++] = '\0';
@@ -33,4 +36,5 @@ void splitOnStrs(char* buffer, size_t numOfStrs, char* splitStrs){
         }   
         splitStrs[i_spltStrs++] = buffer[i_buff++];
     }
+    return NO_ERRORS;
 }

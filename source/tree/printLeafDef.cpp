@@ -3,9 +3,7 @@
 #include <string.h>
 #include <assert.h>
 
-#include "../h_files/nodeStruct.h"
-#include "../h_files/defStruct.h"
-#include "../h_files/printLeafDef.h"
+#include "tree.h"
 
 void printLeafDef(const node_t* node, const char* leafName, def_t* defParts, size_t i_dP){
     assert(node != nullptr);
@@ -20,7 +18,7 @@ void printLeafDef(const node_t* node, const char* leafName, def_t* defParts, siz
             for (size_t i = 0; i < i_dP; i++)
             {
                 
-                defParts[i].truth ? printf(" %s", defParts[i].str) : printf(" not %s", defParts[i].str);
+                defParts[i].truth ? printf(" %s", defParts[i].str) : printf("\033[31m not %s \033[37m", defParts[i].str);
             }
             printf("\n");
         }
@@ -37,7 +35,7 @@ void printLeafDef(const node_t* node, const char* leafName, def_t* defParts, siz
     {
         defParts[i_dP].str = node->data;
         defParts[i_dP].truth = 0;
-        printLeafDef(node->right, leafName, defParts, i_dP+1);
+        printLeafDef(node->right, leafName, defParts, i_dP + 1);
     }
     return;
 }

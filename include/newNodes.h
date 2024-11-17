@@ -3,9 +3,8 @@
 
 struct newNode_t
 {
-    char buffer[10000];
+    char newStr[1000];
     size_t freeSpace;
 };
-
 
 #endif

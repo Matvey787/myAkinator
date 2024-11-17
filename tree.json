@@ -3,7 +3,73 @@ is human
     {
     is student of MIPT
         {
-        Alex R.
+        is study in FRKT
+            {
+            is name start on A
+                {
+                Alex R.
+                }
+                {
+                is name start on E
+                    {
+                    Egor B.
+                    }
+                    {
+                    is name start on M
+                        {
+                        Matvey G.
+                        }
+                    }
+                }
+            }
+            {
+            is study in LFI
+                {
+                is studient
+                    {
+                    Alex S.
+                    }
+                    {
+                    is prepod
+                        {
+                        K.L.M.
+                        }
+                    }
+                }
+            }
+        }
+        {
+        is citisen of Russia
+            {
+            is politician
+                {
+                is politician of Russia
+                    {
+                    Putin
+                    }
+                    {
+                    is politician of USA
+                        {
+                        Tramp
+                        }
+                    }
+                }
+                {
+                is musician
+                    {
+                    Morgenshtern
+                    }
+                    {
+                    is sportsmen
+                        {
+                        is boxer
+                            {
+                            Mike Tyson
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     {
@@ -15,6 +81,39 @@ is human
         is dog
             {
             Rex
+            }
+            {
+            is tree
+                {
+                is dub
+                    {
+                    dub
+                    }
+                }
+                {
+                is electronik thing
+                    {
+                    is toaster
+                        {
+                        toaster
+                        }
+                        {
+                        is fridge
+                            {
+                            fridge
+                            }
+                            {
+                            is car
+                                {
+                                is subaru
+                                    {
+                                    subaru
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
