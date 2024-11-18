@@ -7,18 +7,27 @@
 #include "tree.h"
 #include "newNodes.h"
 #include "runAkinator.h"
+#include "constants.h"
 
 void createNode(node_t** ptrNode, newNode_t* newNodes);
 void updateJSON(node_t* tree, const char* fileName);
 void rewriteTreeJSON(node_t* tree, FILE* file, int indent);
 
-void run(node_t** tree, const char* fileName, newNode_t* newNodes){
+error run(node_t** tree, const char* fileName, newNode_t* newNodes){
     assert(tree != nullptr);
-    char phrase[100] = {0};
+    assert(fileName != nullptr);
+    assert(newNodes != nullptr);
+    error status = NO_ERRORS;
+    
+    if ((tree == nullptr) || (fileName == nullptr) || (newNodes == nullptr))
+        return NULLPTR_ERROR;
+
+    char phrase[c_length_of_strs] = {0};
+
+    printf("%s?\n", (*tree)->data);
     sprintf(phrase, "espeak \"%s\"", (*tree)->data);
     system(phrase);
 
-    printf("%s?\n", (*tree)->data);
     int c = 0;
 
     while ((c = getchar()) != 'y' && c != 'n') ;
@@ -34,7 +43,7 @@ void run(node_t** tree, const char* fileName, newNode_t* newNodes){
         } 
         else
         {
-            run(&((*tree)->left), fileName, newNodes);
+            status = run(&((*tree)->left), fileName, newNodes);
         } 
     } 
     else if (c == 'n' && (*tree)->right != NULL)
@@ -47,17 +56,26 @@ void run(node_t** tree, const char* fileName, newNode_t* newNodes){
         }
         else 
         {
-            run(&((*tree)->right), fileName, newNodes);
+            status = run(&((*tree)->right), fileName, newNodes);
         }
     } else {
         printf("I am loser. What did you wish for? Create new node:\n");
         system("espeak \"I am loser. What did you wish for? Create new node\"");
         createNode(&((*tree)->right), newNodes);
     }
+
+    if (status != NO_ERRORS)
+        return status;
+
     updateJSON(*tree, fileName);
+
+    return status;
 }
 
 void createNode(node_t** ptrNode, newNode_t* newNodes){
+    assert(ptrNode != nullptr);
+    assert(newNodes != nullptr);
+
     printf("New question: ");
     scanf("%s", newNodes->newStr);
 
@@ -68,19 +86,19 @@ void createNode(node_t** ptrNode, newNode_t* newNodes){
     (*ptrNode)->data = newNodes->newStr;
     newNodes->freeSpace  += strlen(newNodes->newStr) + 1;
 
-    //printf("ptr node before: %s\n", (*ptrNode)->data);
     printf("Answer if \"yes\": ");
     scanf("%s", newNodes->newStr + newNodes->freeSpace);
     
     (*ptrNode)->left = (node_t*)calloc(1, sizeof(node_t));
     (*ptrNode)->left->data = newNodes->newStr + newNodes->freeSpace;
-    
-    //printf("ptr node after: %s\n", (*ptrNode)->data);
 
     newNodes->freeSpace += strlen(newNodes->newStr + newNodes->freeSpace) + 1;
 }
 
 void updateJSON(node_t* tree, const char* fileName){
+    assert(tree != nullptr);
+    assert(fileName != nullptr);
+
     FILE* file = fopen(fileName, "w");
     rewriteTreeJSON(tree, file, 0);
     fclose(file);
@@ -88,10 +106,11 @@ void updateJSON(node_t* tree, const char* fileName){
 
 void rewriteTreeJSON(node_t* tree, FILE* file, int indent){
     assert(tree != nullptr);
-    assert(tree != nullptr);
-    int fullIndent = indent * 4 + (int)strlen(tree->data);
+    assert(file != nullptr);
+
+    int fullIndent = indent * c_tab + (int)strlen(tree->data);
     
-    fprintf(file, "%*s", indent * 4 + 2, "{\n");
+    fprintf(file, "%*s", indent * c_tab + 2, "{\n");
     fprintf(file, "%*s\n", fullIndent, tree->data);
 
     if (tree->left != NULL)
@@ -99,5 +118,5 @@ void rewriteTreeJSON(node_t* tree, FILE* file, int indent){
     if (tree->right != NULL)
         rewriteTreeJSON(tree->right, file, indent+1);
 
-    fprintf(file, "%*s", indent * 4 + 2, "}\n");
+    fprintf(file, "%*s", indent * c_tab + 2, "}\n");
 }

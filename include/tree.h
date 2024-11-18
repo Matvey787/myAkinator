@@ -17,7 +17,7 @@ struct def_t
 };
 
 error createTree(char** strs, node_t** node);
-void delTree(node_t* node);
+error delTree(node_t* node);
 
 void printLeafDef(const node_t* node, const char* leafName, def_t* defParts, size_t i_dP);
 

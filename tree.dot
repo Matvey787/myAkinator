@@ -2,7 +2,7 @@ digraph
 { 
 rankdir=HR;
 
-node0x76c1a09090d0 [ shape=record, rank = 1, label= "{ 0x76c1a09090d0 | is human | {<n0x76c1a09090d0_l> left | <n0x76c1a09090d0_r> right}} " ];
+node0x747cc0d090c0 [ shape=record, rank = 1, label= "{ 0x747cc0d090c0 | is human | {<n0x747cc0d090c0_l> left | <n0x747cc0d090c0_r> right}} " ];
 node0x503000000040 [ shape=record, rank = 2, label= "{ 0x503000000040 | is student of MIPT | {<n0x503000000040_l> left | <n0x503000000040_r> right}} " ];
 node0x503000000070 [ shape=record, rank = 3, label= "{ 0x503000000070 | is study in FRKT | {<n0x503000000070_l> left | <n0x503000000070_r> right}} " ];
 node0x5030000000a0 [ shape=record, rank = 4, label= "{ 0x5030000000a0 | is name start on A | {<n0x5030000000a0_l> left | <n0x5030000000a0_r> right}} " ];
@@ -50,7 +50,7 @@ node0x5030000003d0:<n0x5030000003d0_r>:s -> node0x503000000430:n [ color = red; 
 node0x5030000002e0:<n0x5030000002e0_r>:s -> node0x5030000003d0:n [ color = red; ]
 node0x5030000002b0:<n0x5030000002b0_l>:s -> node0x5030000002e0:n [ color = blue; ]
 node0x503000000040:<n0x503000000040_r>:s -> node0x5030000002b0:n [ color = red; ]
-node0x76c1a09090d0:<n0x76c1a09090d0_l>:s -> node0x503000000040:n [ color = blue; ]
+node0x747cc0d090c0:<n0x747cc0d090c0_l>:s -> node0x503000000040:n [ color = blue; ]
 node0x5030000004c0 [ shape=record, rank = 3, label= "{ 0x5030000004c0 | is animal | {<n0x5030000004c0_l> left | <n0x5030000004c0_r> right}} " ];
 node0x5030000004f0 [ shape=record, rank = 4, label= "{ 0x5030000004f0 | is Poltorashka | {<n0x5030000004f0_l> left | <n0x5030000004f0_r> right}} " ];
 node0x5030000004c0:<n0x5030000004c0_l>:s -> node0x5030000004f0:n [ color = blue; ]
@@ -80,5 +80,5 @@ node0x503000000610:<n0x503000000610_l>:s -> node0x503000000640:n [ color = blue;
 node0x503000000580:<n0x503000000580_r>:s -> node0x503000000610:n [ color = red; ]
 node0x503000000520:<n0x503000000520_r>:s -> node0x503000000580:n [ color = red; ]
 node0x5030000004c0:<n0x5030000004c0_r>:s -> node0x503000000520:n [ color = red; ]
-node0x76c1a09090d0:<n0x76c1a09090d0_r>:s -> node0x5030000004c0:n [ color = red; ]
+node0x747cc0d090c0:<n0x747cc0d090c0_r>:s -> node0x5030000004c0:n [ color = red; ]
 }

@@ -17,7 +17,6 @@ void printLeafDef(const node_t* node, const char* leafName, def_t* defParts, siz
             printf("%s", node->data);
             for (size_t i = 0; i < i_dP; i++)
             {
-                
                 defParts[i].truth ? printf(" %s", defParts[i].str) : printf("\033[31m not %s \033[37m", defParts[i].str);
             }
             printf("\n");
